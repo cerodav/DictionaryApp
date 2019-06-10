@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link href="css/main.css" rel="stylesheet" />
+  </head>
+  <body ng-app="autocompleteApp" ng-controller="autocompleteCtrl">
+    <div class="s003">
+	<div class="wrapper">
+      <form>
+        <div class="inner-form" >
+		  <form action="search">
+          <div class="input-field second-wrap">
+            <input name="search" type="text" placeholder="What are you looking for ?" autocomplete="off" ng-model="searchWord" ng-change="inputEntryEvent()"/>
+          </div>
+          <div class="input-field third-wrap">
+            <button class="btn-search" type="submit" formmethod="post" formaction="/search">
+              <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+		</div>
+      </form>
+      <form>
+      	<div class="suggestions-inner-form" id="suggestions-wrapper">
+      		<div class="input-field suggestions-wrap">
+      				<button class="btn-search label" type="submit" formmethod="post" formaction="/search">Suggestions : </button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">crepe</button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">creep</button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">cresent</button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">crepe</button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">creep</button>
+					<button class="btn-search" type="submit" formmethod="post" formaction="/search">cresent</button>
+			</div>
+      	</div>
+      </form>
+	  <form>
+	  <div class="inner-form">
+				<div class="second-wrap result-wrap">
+					#result_attachment_handle#
+				</div>
+		  </div>
+	  </form>
+	  </div>
+	</div>
+	<script>
+	
+	var testApp = angular.module("autocompleteApp", []);
+	  testApp.controller('autocompleteCtrl', ["$scope", "$http", function($scope, $http) {
+		$scope.inputEntryEvent = function() {
+			if ($scope.searchWord.length >= 3 ) {
+				this.getAllWordsWithPrefixViaRest($scope.searchWord);
+			}
+		};
+		
+		$scope.getAllWordsWithPrefixViaRest = function(prefix) {
+			if (prefix.length >= 3 && !(prefix === undefined)) {
+				var result = "";
+				$http.get("http://localhost:8000/wordsForPrefix/" + prefix).then(
+					  function successCallback(response) {
+						result = response;
+						console.log(result.data);
+						$scope.formulateAutocompleteResultsHTML(result.data);
+					  },
+					  function errorCallback(response) {
+						console.log("Unable to perform get request");
+					  }
+				);
+			}
+			else {
+				return null;
+			}
+		};
+		
+		$scope.formulateAutocompleteResultsHTML = function(data) {
+			console.log('Working to present result - ' + data);
+			var parentDivId = 'suggestions-wrapper';
+			var parentDOMObj = document.getElementById(parentDivId);
+			while (parentDOMObj.firstChild) {
+			    parentDOMObj.removeChild(parentDOMObj.firstChild);
+			}
+			
+			if (data.length > 0) {
+
+				var inpFieSuggWrapDOMObj = document.createElement('div');
+				inpFieSuggWrapDOMObj.classList.add('input-field');
+				inpFieSuggWrapDOMObj.classList.add('suggestions-wrap');
+
+				var aSuggestionLabelDOMObj = document.createElement('button')
+				aSuggestionLabelDOMObj.classList.add('btn-search');
+				aSuggestionLabelDOMObj.classList.add('label');
+
+				inpFieSuggWrapDOMObj.appendChild(aSuggestionLabelDOMObj);
+
+				//formulatedHTML = formulatedHTML + "<div class='inner-form'><div class='second-wrap result-wrap'>";
+				for (var i = 0; i < data.length ; i ++) {
+					var aSuggestionDOMObj = document.createElement('button')
+					aSuggestionDOMObj.classList.add('btn-search');
+					aSuggestionDOMObj.formmethod = 'post'
+					aSuggestionDOMObj.formaction = '/search'
+					aSuggestionDOMObj.innerHTML = data[i]
+					inpFieSuggWrapDOMObj.appendChild(aSuggestionDOMObj);
+				}
+				//formulatedHTML = formulatedHTML + "</div></div>";
+				parentDOMObj.appendChild(inpFieSuggWrapDOMObj);
+			}
+			
+		};
+	  }]);
+
+	</script>
+  </body>
+</html>

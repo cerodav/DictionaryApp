@@ -1,0 +1,134 @@
+[
+  {
+    "word": "creatine",
+    "value": [
+      {
+        "definition": "a compound formed in protein metabolism and present in much living tissue. It is involved in the supply of energy for muscular contraction.",
+        "lexical_category": "Noun"
+      }
+    ]
+  },
+  {
+    "word": "crepe",
+    "value": [
+      {
+        "definition": "a light, thin fabric with a wrinkled surface",
+        "example": "a crêpe bandage",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a thin pancake.",
+        "lexical_category": "Noun"
+      }
+    ]
+  },
+  {
+    "word": "break",
+    "value": [
+      {
+        "definition": "separate into pieces as a result of a blow, shock, or strain",
+        "example": "the rope broke with a loud snap",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "interrupt (a continuity, sequence, or course)",
+        "example": "the new government broke the pattern of growth",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "fail to observe (a law, regulation, or agreement)",
+        "example": "the council says it will prosecute traders who break the law",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "crush the emotional strength, spirit, or resistance of",
+        "example": "the idea was to better the prisoners, not to break them",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "(of the weather) change suddenly, especially after a fine spell",
+        "example": "the weather broke and thunder rumbled through a leaden sky",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "(of news or a scandal) suddenly become public",
+        "example": "since the news broke I've received thousands of wonderful letters",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "(chiefly of an attacking player or team, or of a military force) make a rush or dash in a particular direction",
+        "example": "Mitchell won possession and broke quickly, allowing Hughes to score",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "an interruption of continuity or uniformity",
+        "example": "the magazine has been published without a break since 1950",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a pause in work or during an activity or event",
+        "example": "I need a break from mental activity",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a gap or opening",
+        "example": "the track bends left through a break in the hedge",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "an instance of breaking something, or the point where something is broken",
+        "example": "he was stretchered off with a break to the leg",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a rush or dash in a particular direction, especially by an attacking player or team",
+        "example": "Norwich scored on a rare break with 11 minutes left",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "an opportunity or chance, especially one leading to professional success",
+        "example": "he got his break as an entertainer on a TV music hall show",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a consecutive series of successful shots, scoring a specified number of points",
+        "example": "a break of 83 put him in front for the first time",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a bud or shoot sprouting from a stem.",
+        "lexical_category": "Noun"
+      }
+    ]
+  },
+  {
+    "word": "braid",
+    "value": [
+      {
+        "definition": "threads of silk, cotton, or other material woven into a decorative band for edging or trimming garments",
+        "example": "fancy braids",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "a length of hair made up of three or more interlaced strands",
+        "example": "her hair curled neatly in blonde braids",
+        "lexical_category": "Noun"
+      },
+      {
+        "definition": "interlace three or more strands of (hair or other flexible material) to form a length",
+        "example": "their long hair was tightly braided",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "edge or trim (a garment) with braid",
+        "example": "braided red trousers",
+        "lexical_category": "Verb"
+      },
+      {
+        "definition": "(of a river or stream) flow into shallow interconnected channels divided by deposited earth or alluvium",
+        "example": "a braided river carries an enormous burden of sand and gravel",
+        "lexical_category": "Verb"
+      }
+    ]
+  }
+]
